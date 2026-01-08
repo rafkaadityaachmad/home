@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Galaksi Rafka | TKJ Gamer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', Geneva, Verdana, sans-serif;
+            background-color: #050510;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Background galaksi */
+        .galaxy-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(30, 10, 80, 0.8) 0%, transparent 40%),
+                radial-gradient(circle at 90% 30%, rgba(100, 20, 120, 0.6) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(10, 30, 100, 0.7) 0%, transparent 40%),
+                linear-gradient(180deg, #050510 0%, #0a0a20 30%, #151530 100%);
+        }
+
+        /* Bintang-bintang berkelap-kelip */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Planet berputar */
+        .planet {
+            position: fixed;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(1px);
+        }
+
+        .planet-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 5%;
+            background: radial-gradient(circle at 30% 30%, #a855f7, #3b0764);
+            animation: rotatePlanet 40s linear infinite;
+        }
+
+        .planet-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            left: 10%;
+            background: radial-gradient(circle at 40% 40%, #0ea5e9, #1e40af);
+            animation: rotatePlanet 30s linear infinite reverse;
+        }
+
+        @keyframes rotatePlanet {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Gaming-style cursor */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="%23a855f7" opacity="0.9"/><circle cx="12" cy="12" r="4" fill="%230ea5e9" opacity="0.9"/></svg>') 12 12, auto;
+        }
+
+        /* Header dengan galaksi */
+        header {
+            background: rgba(10, 15, 40, 0.7);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 2px solid #0ea5e9;
+            backdrop-filter: blur(10px);
+            margin-bottom: 60px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .galaxy-text {
+            color: #fff;
+            text-shadow: 
+                0 0 10px #0ea5e9,
+                0 0 20px #0ea5e9,
+                0 0 30px #0ea5e9,
+                0 0 40px #a855f7,
+                0 0 70px #a855f7,
+                0 0 80px #a855f7;
+            animation: galaxyPulse 2s infinite alternate;
+        }
+
+        @keyframes galaxyPulse {
+            0% { 
+                text-shadow: 
+                    0 0 10px #0ea5e9,
+                    0 0 20px #0ea5e9,
+                    0 0 30px #0ea5e9,
+                    0 0 40px #a855f7,
+                    0 0 70px #a855f7;
+            }
+            100% { 
+                text-shadow: 
+                    0 0 15px #0ea5e9,
+                    0 0 25px #0ea5e9,
+                    0 0 35px #0ea5e9,
+                    0 0 50px #a855f7,
+                    0 0 90px #a855f7,
+                    0 0 100px #a855f7;
+            }
+        }
+
+        header h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .gamer-tag {
+            display: inline-block;
+            background: linear-gradient(90deg, #0ea5e9, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            padding: 10px 25px;
+            border: 2px solid #0ea5e9;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            animation: borderFlow 3s infinite linear;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gamer-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: tagShine 3s infinite;
+        }
+
+        @keyframes borderFlow {
+            0% { border-color: #0ea5e9; }
+            50% { border-color: #a855f7; }
+            100% { border-color: #0ea5e9; }
+        }
+
+        @keyframes tagShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: #bae6fd;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 0 10px rgba(14
